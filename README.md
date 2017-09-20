@@ -1,6 +1,7 @@
 [![Build Status](https://www.travis-ci.org/drupol/anonymize.svg?branch=master)](https://www.travis-ci.org/drupol/anonymize)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/drupol/anonymize/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/drupol/anonymize/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/drupol/anonymize/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/drupol/anonymize/?branch=master)
+[![StyleCI](https://styleci.io/repos/104116278/shield?branch=master)](https://styleci.io/repos/104116278)
 [![Latest Stable Version](https://poser.pugx.org/drupol/anonymize/v/stable)](https://packagist.org/packages/drupol/anonymize)
 [![Total Downloads](https://poser.pugx.org/drupol/anonymize/downloads)](https://packagist.org/packages/drupol/anonymize)
 [![License](https://poser.pugx.org/drupol/anonymize/license)](https://packagist.org/packages/drupol/anonymize)
