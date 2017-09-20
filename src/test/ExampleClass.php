@@ -4,7 +4,6 @@ namespace drupol\Anonymize\test;
 
 class ExampleClass
 {
-
     public $publicProperty = 'publicProperty';
     private $privateProperty = 'privateProperty';
     protected $protectedProperty = 'protectedProperty';

@@ -9,5 +9,4 @@ namespace drupol\Anonymize;
  */
 class Anonymize extends AbstractAnonymize
 {
-
 }
