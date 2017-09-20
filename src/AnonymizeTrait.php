@@ -23,21 +23,21 @@ trait AnonymizeTrait
      */
     public static function convertToAnonymous($object)
     {
-        $reflexion = new \ReflectionClass($object);
+        $reflection = new \ReflectionClass($object);
         $class = new class extends DynamicObject {
         };
 
-        foreach ($reflexion->getMethods(\ReflectionMethod::IS_PUBLIC) as $method) {
+        foreach ($reflection->getMethods(\ReflectionMethod::IS_PUBLIC) as $method) {
             $method->setAccessible(true);
             $class::addDynamicMethod($method->name, $method->getClosure($object));
         }
 
-        foreach ($reflexion->getMethods(\ReflectionMethod::IS_PROTECTED | \ReflectionMethod::IS_PRIVATE) as $method) {
+        foreach ($reflection->getMethods(\ReflectionMethod::IS_PROTECTED | \ReflectionMethod::IS_PRIVATE) as $method) {
             $method->setAccessible(false);
             $class::addDynamicMethod($method->name, $method->getClosure($object));
         }
 
-        foreach ($reflexion->getProperties(\ReflectionProperty::IS_PUBLIC) as $property) {
+        foreach ($reflection->getProperties(\ReflectionProperty::IS_PUBLIC) as $property) {
             $property->setAccessible(true);
             $class::addDynamicProperty($property->name, $property->getValue($object));
         }
