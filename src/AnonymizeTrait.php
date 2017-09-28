@@ -12,8 +12,6 @@ use drupol\DynamicObjects\DynamicObjectsTrait;
  */
 trait AnonymizeTrait
 {
-    use DynamicObjectsTrait;
-
     /**
      * Convert an object into an anonymous object.
      *
@@ -24,7 +22,7 @@ trait AnonymizeTrait
     public static function convertToAnonymous($object)
     {
         $reflection = new \ReflectionClass($object);
-        $class = new class extends DynamicObject {
+        $class = new class extends Anonymize {
         };
 
         foreach ($reflection->getMethods(\ReflectionMethod::IS_PUBLIC) as $method) {

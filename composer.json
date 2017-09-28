@@ -3,7 +3,7 @@
     "description": "Converts an object/class into an anonymous class.",
     "license": "GPL",
     "homepage": "https://github.com/drupol/anonymize",
-    "keywords": ["anonymize classes"],
+    "keywords": ["anonymize classes", "anonymous classes"],
     "support": {
         "source": "https://github.com/drupol/anonymize",
         "forum": "https://github.com/drupol/anonymize/issues",

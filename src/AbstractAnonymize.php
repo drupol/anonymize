@@ -2,12 +2,14 @@
 
 namespace drupol\Anonymize;
 
+use drupol\DynamicObjects\DynamicObject;
+
 /**
  * Class AbstractAnonymize.
  *
  * @package drupol\Anonymize
  */
-abstract class AbstractAnonymize
+abstract class AbstractAnonymize extends DynamicObject
 {
     use AnonymizeTrait;
 }
