@@ -2,9 +2,6 @@
 
 namespace drupol\Anonymize;
 
-use drupol\DynamicObjects\DynamicObject;
-use drupol\DynamicObjects\DynamicObjectsTrait;
-
 /**
  * Trait AnonymizeTrait.
  *

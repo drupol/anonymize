@@ -21,7 +21,8 @@
     },
     "autoload": {
         "psr-4": {
-            "drupol\\Anonymize\\": "src/"
+            "drupol\\Anonymize\\": "src/",
+            "drupol\\Anonymize\\tests\\": "spec/"
         }
     },
     "require-dev": {
@@ -33,7 +34,8 @@
         "phpmd/phpmd": "^2.6",
         "sebastian/phpcpd": "^3.0",
         "sensiolabs/security-checker": "^4.1",
-        "fetzi/phpspec-watcher": "^1.0"
+        "fetzi/phpspec-watcher": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.8"
     },
     "scripts": {
         "phpspec": "./vendor/bin/phpspec run",

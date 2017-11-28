@@ -3,7 +3,7 @@
 namespace spec\drupol\Anonymize;
 
 use drupol\Anonymize\Anonymize;
-use drupol\Anonymize\test\ExampleClass;
+use drupol\Anonymize\tests\Stubs\ExampleClass;
 use PhpSpec\ObjectBehavior;
 
 class AnonymizeSpec extends ObjectBehavior

@@ -57,3 +57,4 @@ composer.phar
 /.idea/
 /build/
 phpspec.yml
+/.php_cs.cache
