@@ -33,24 +33,35 @@ Using the object:
 
 include 'vendor/autoload.php';
 
-class hello {
+class Hello
+{
+    public $property = 'YES!';
 
-    public $property = "YES!";
-
-    public function say() {
-        echo "Hello " . $this->world();
+    public function say()
+    {
+        echo 'Hello ' . $this->world();
     }
 
-    private function world() {
+    private function world()
+    {
         return 'world!';
     }
 }
 
 $class = new Hello();
+$class->say(); // Hello world!
 
-$myObject = \drupol\Anonymize\Anonymize::convertToAnonymous($class);
-$myObject->say(); // Hello world!
+$anonymizedClass = \drupol\Anonymize\Anonymize::convertToAnonymous($class);
 
+$anonymizedClass->addDynamicMethod('say', function () use ($anonymizedClass) {
+    echo 'Goodbye ' . $anonymizedClass->world();
+});
+
+$anonymizedClass->addDynamicMethod('world', function () {
+    return 'universe!';
+});
+
+$anonymizedClass->say(); // Goodbye universe!
 ```
 
 ## API
@@ -67,6 +78,8 @@ $myObject->say(); // Hello world!
 AnonymizeTrait::convertToAnonymous($object);
 
 ```
+
+The rest of the library API relies and inherit from [DynamicObjects](https://github.com/drupol/dynamicobjects).
 
 ## Contributing
 

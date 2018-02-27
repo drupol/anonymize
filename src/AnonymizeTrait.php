@@ -4,8 +4,6 @@ namespace drupol\Anonymize;
 
 /**
  * Trait AnonymizeTrait.
- *
- * @package drupol\Anonymize
  */
 trait AnonymizeTrait
 {
@@ -13,6 +11,8 @@ trait AnonymizeTrait
      * Convert an object into an anonymous object.
      *
      * @param $object
+     *
+     * @throws \ReflectionException
      *
      * @return Anonymize
      */
