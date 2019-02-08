@@ -16,7 +16,7 @@
         "role": "Author"
     }],
     "require": {
-        "php": ">=7.0",
+        "php": ">=7",
         "drupol/dynamicobjects": "^1"
     },
     "autoload": {
@@ -37,7 +37,10 @@
         "scrutinizer": "./vendor/bin/ocular code-coverage:upload --format=php-clover build/coverage.xml"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "7.2"
+        }
     },
     "extra": {
         "grumphp": {
