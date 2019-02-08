@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace drupol\Anonymize\tests\Stubs;
 
 class ExampleClass
@@ -13,14 +15,14 @@ class ExampleClass
         return 'publicMethod';
     }
 
-    public function renderProperties()
-    {
-        return $this->publicProperty . $this->privateProperty . $this->protectedProperty;
-    }
-
     public function renderMethods()
     {
         return $this->publicMethod() . $this->privateMethod() . $this->protectedMethod();
+    }
+
+    public function renderProperties()
+    {
+        return $this->publicProperty . $this->privateProperty . $this->protectedProperty;
     }
 
     protected function protectedMethod()

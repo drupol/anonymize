@@ -12,12 +12,12 @@
     "authors": [{
         "name": "Pol Dellaiera",
         "email": "pol.dellaiera@protonmail.com",
-        "homepage": "http://not-a-number.io",
+        "homepage": "https://not-a-number.io",
         "role": "Author"
     }],
     "require": {
         "php": ">=7.0",
-        "drupol/dynamicobjects": "^1.0"
+        "drupol/dynamicobjects": "^1"
     },
     "autoload": {
         "psr-4": {
@@ -26,20 +26,22 @@
         }
     },
     "require-dev": {
-        "phpro/grumphp": "^0.12",
-        "phpspec/phpspec": "^3.0",
-        "squizlabs/php_codesniffer": "^3.0",
-        "leanphp/phpspec-code-coverage": "^3.1",
-        "scrutinizer/ocular": "^1.4",
-        "phpmd/phpmd": "^2.6",
-        "sebastian/phpcpd": "^3.0",
-        "sensiolabs/security-checker": "^4.1",
-        "fetzi/phpspec-watcher": "^1.0",
-        "friendsofphp/php-cs-fixer": "^2.8"
+        "drupol/php-conventions": "^1",
+        "scrutinizer/ocular": "^1",
+        "apigen/apigen": "dev-master#85290e8",
+        "roave/better-reflection": "dev-master#0009c64"
     },
     "scripts": {
         "phpspec": "./vendor/bin/phpspec run",
         "grumphp": "./vendor/bin/grumphp run",
         "scrutinizer": "./vendor/bin/ocular code-coverage:upload --format=php-clover build/coverage.xml"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "grumphp": {
+            "config-default-path": "vendor/drupol/php-conventions/config/php7/grumphp.yml"
+        }
     }
 }

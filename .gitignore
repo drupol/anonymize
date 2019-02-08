@@ -58,3 +58,4 @@ composer.phar
 /build/
 phpspec.yml
 /.php_cs.cache
+/test.php

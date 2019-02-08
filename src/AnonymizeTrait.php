@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace drupol\Anonymize;
 
 /**
@@ -10,7 +12,7 @@ trait AnonymizeTrait
     /**
      * Convert an object into an anonymous object.
      *
-     * @param $object
+     * @param object $object
      *
      * @throws \ReflectionException
      *
@@ -19,20 +21,34 @@ trait AnonymizeTrait
     public static function convertToAnonymous($object)
     {
         $reflection = new \ReflectionClass($object);
-        $class = new class extends Anonymize {
+        $class = new class() extends Anonymize {
         };
 
-        foreach ($reflection->getMethods(\ReflectionMethod::IS_PUBLIC) as $method) {
-            $method->setAccessible(true);
-            $class::addDynamicMethod($method->name, $method->getClosure($object));
+        $methods = $reflection->getMethods(\ReflectionMethod::IS_PUBLIC);
+        foreach ($methods as $method) {
+            $closure = $method->getClosure($object);
+
+            if ($closure instanceof \Closure) {
+                $class::addDynamicMethod($method->name, $closure);
+            }
         }
 
-        foreach ($reflection->getMethods(\ReflectionMethod::IS_PROTECTED | \ReflectionMethod::IS_PRIVATE) as $method) {
-            $method->setAccessible(false);
-            $class::addDynamicMethod($method->name, $method->getClosure($object));
+        $methods = $reflection->getMethods(\ReflectionMethod::IS_PROTECTED | \ReflectionMethod::IS_PRIVATE);
+        foreach ($methods as $method) {
+            $closure = $method->getClosure($object);
+
+            if ($closure instanceof \Closure) {
+                $class::addDynamicMethod($method->name, $closure);
+            }
         }
 
-        foreach ($reflection->getProperties(\ReflectionProperty::IS_PUBLIC) as $property) {
+        $properties = $reflection->getProperties(\ReflectionProperty::IS_PUBLIC);
+        foreach ($properties as $property) {
+            $class::addDynamicProperty($property->name, $property->getValue($object));
+        }
+
+        $properties = $reflection->getProperties(\ReflectionProperty::IS_PROTECTED | \ReflectionProperty::IS_PRIVATE);
+        foreach ($properties as $property) {
             $property->setAccessible(true);
             $class::addDynamicProperty($property->name, $property->getValue($object));
         }
