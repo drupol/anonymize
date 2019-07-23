@@ -21,7 +21,7 @@ Convert a regular class into an anonymous class.
 
 ## Requirements
 
-* PHP >= 7.0
+* PHP >= 7.1.3
 
 ## Installation
 
@@ -85,6 +85,17 @@ AnonymizeTrait::convertToAnonymous($object);
 ```
 
 The rest of the library API relies and inherit from [DynamicObjects](https://github.com/drupol/dynamicobjects).
+
+## Code quality, tests and benchmarks
+
+Every time changes are introduced into the library, [Travis CI](https://travis-ci.org/drupol/phptree/builds) run the tests and the benchmarks.
+
+The library has tests written with [PHPSpec](http://www.phpspec.net/).
+Feel free to check them out in the `spec` directory. Run `composer phpspec` to trigger the tests.
+
+Before each commit some inspections are executed with [GrumPHP](https://github.com/phpro/grumphp), run `./vendor/bin/grumphp run` to check manually.
+
+[PHPInfection](https://github.com/infection/infection) is used to ensure that your code is properly tested, run `composer infection` to test your code.
 
 ## Contributing
 
