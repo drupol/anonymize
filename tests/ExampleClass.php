@@ -2,12 +2,14 @@
 
 declare(strict_types = 1);
 
-namespace drupol\Anonymize\tests\Stubs;
+namespace drupol\Anonymize\tests;
 
 class ExampleClass
 {
     public $publicProperty = 'publicProperty';
+
     protected $protectedProperty = 'protectedProperty';
+
     private $privateProperty = 'privateProperty';
 
     public function publicMethod()

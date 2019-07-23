@@ -1,14 +1,7 @@
-suites:
-  tagattributes:
-    namespace: drupol\Anonymize
-    psr4_prefix: drupol\Anonymize
-
 formatter.name: pretty
-
 extensions:
+  drupol\PhpspecAnnotation\PhpspecAnnotation: ~
   LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
-    blacklist:
-      - src/test
     format:
       - html
       - clover
@@ -16,5 +9,5 @@ extensions:
       - text
     output:
       html: build/coverage
-      clover: build/coverage.xml
+      clover: build/logs/clover.xml
       php: build/coverage.php

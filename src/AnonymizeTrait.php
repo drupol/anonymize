@@ -25,6 +25,7 @@ trait AnonymizeTrait
         };
 
         $methods = $reflection->getMethods(\ReflectionMethod::IS_PUBLIC);
+
         foreach ($methods as $method) {
             $closure = $method->getClosure($object);
 
@@ -34,6 +35,7 @@ trait AnonymizeTrait
         }
 
         $methods = $reflection->getMethods(\ReflectionMethod::IS_PROTECTED | \ReflectionMethod::IS_PRIVATE);
+
         foreach ($methods as $method) {
             $closure = $method->getClosure($object);
 
@@ -43,11 +45,13 @@ trait AnonymizeTrait
         }
 
         $properties = $reflection->getProperties(\ReflectionProperty::IS_PUBLIC);
+
         foreach ($properties as $property) {
             $class::addDynamicProperty($property->name, $property->getValue($object));
         }
 
         $properties = $reflection->getProperties(\ReflectionProperty::IS_PROTECTED | \ReflectionProperty::IS_PRIVATE);
+
         foreach ($properties as $property) {
             $property->setAccessible(true);
             $class::addDynamicProperty($property->name, $property->getValue($object));

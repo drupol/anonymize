@@ -5,12 +5,12 @@ declare(strict_types = 1);
 namespace spec\drupol\Anonymize;
 
 use drupol\Anonymize\Anonymize;
-use drupol\Anonymize\tests\Stubs\ExampleClass;
+use drupol\Anonymize\tests\ExampleClass;
 use PhpSpec\ObjectBehavior;
 
 class AnonymizeSpec extends ObjectBehavior
 {
-    public function it_can_convert_a_class_into_an_anonymous_class()
+    public function it_can_convert_a_class_into_an_anonymous_class(): void
     {
         $class = new ExampleClass();
         $anon = $this::convertToAnonymous($class);
@@ -26,7 +26,7 @@ class AnonymizeSpec extends ObjectBehavior
         $anon->renderMethods()->shouldBe($class->renderMethods());
     }
 
-    public function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldHaveType(Anonymize::class);
     }

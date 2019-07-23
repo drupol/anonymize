@@ -1,11 +1,14 @@
-[![Build Status](https://www.travis-ci.org/drupol/anonymize.svg?branch=master)](https://www.travis-ci.org/drupol/anonymize)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/drupol/anonymize/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/drupol/anonymize/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/drupol/anonymize/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/drupol/anonymize/?branch=master)
-[![StyleCI](https://styleci.io/repos/104116278/shield?branch=master)](https://styleci.io/repos/104116278)
-[![Latest Stable Version](https://poser.pugx.org/drupol/anonymize/v/stable)](https://packagist.org/packages/drupol/anonymize)
-[![Total Downloads](https://poser.pugx.org/drupol/anonymize/downloads)](https://packagist.org/packages/drupol/anonymize)
-[![License](https://poser.pugx.org/drupol/anonymize/license)](https://packagist.org/packages/drupol/anonymize)
-
+[![Latest Stable Version](https://img.shields.io/packagist/v/drupol/anonymize.svg?style=flat-square)](https://packagist.org/packages/drupol/anonymize)
+ [![GitHub stars](https://img.shields.io/github/stars/drupol/anonymize.svg?style=flat-square)](https://packagist.org/packages/drupol/anonymize)
+ [![Total Downloads](https://img.shields.io/packagist/dt/drupol/anonymize.svg?style=flat-square)](https://packagist.org/packages/drupol/anonymize)
+ [![Build Status](https://img.shields.io/travis/drupol/anonymize/master.svg?style=flat-square)](https://travis-ci.org/drupol/anonymize)
+ [![Scrutinizer code quality](https://img.shields.io/scrutinizer/quality/g/drupol/anonymize/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/drupol/anonymize/?branch=master)
+ [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/drupol/anonymize/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/drupol/anonymize/?branch=master)
+ [![Mutation testing badge](https://badge.stryker-mutator.io/github.com/drupol/anonymize/master)](https://stryker-mutator.github.io)
+ [![License](https://img.shields.io/packagist/l/drupol/anonymize.svg?style=flat-square)](https://packagist.org/packages/drupol/anonymize)
+ [![Say Thanks!](https://img.shields.io/badge/Say-thanks-brightgreen.svg?style=flat-square)](https://saythanks.io/to/drupol)
+ [![Donate!](https://img.shields.io/badge/Donate-Paypal-brightgreen.svg?style=flat-square)](https://paypal.me/drupol)
+ 
 # Anonymize
 
 ## Description
@@ -53,11 +56,11 @@ $class->say(); // Hello world!
 
 $anonymizedClass = \drupol\Anonymize\Anonymize::convertToAnonymous($class);
 
-$anonymizedClass->addDynamicMethod('say', function () use ($anonymizedClass) {
+$anonymizedClass::addDynamicMethod('say', function () use ($anonymizedClass) {
     echo 'Goodbye ' . $anonymizedClass->world();
 });
 
-$anonymizedClass->addDynamicMethod('world', function () {
+$anonymizedClass::addDynamicMethod('world', function () {
     return 'universe!';
 });
 
@@ -67,10 +70,12 @@ $anonymizedClass->say(); // Goodbye universe!
 ## API
 
 ```php
+<?php
+
 /**
  * Convert an object into an anonymous object.
  *
- * @param $object
+ * @param \stdClass $object
  *   The object to convert.  
  *
  * @return Anonymize
